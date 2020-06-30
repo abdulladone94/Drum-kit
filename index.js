@@ -4,17 +4,17 @@ function handleClickEvent() {
   buttonAnimation(btninner);
 }
 
-const buttonAnimation = currentKey => {
+function buttonAnimation(currentKey) {
   document.querySelector("." + currentKey).classList.add("pressed");
   setTimeout(() => {
     document.querySelector("." + currentKey).classList.remove("pressed");
   }, 200);
-};
+}
 
-const handleSoundPlay = fileName => {
+function handleSoundPlay(fileName) {
   var audio = new Audio(`sounds/${fileName}.mp3`);
   audio.play();
-};
+}
 
 for (i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document
@@ -43,7 +43,6 @@ const soundMaker = key => {
 
     case "d":
       handleSoundPlay("tom-4");
-      d.play();
       break;
 
     case "j":
