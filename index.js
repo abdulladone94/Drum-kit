@@ -27,7 +27,7 @@ document.addEventListener("keypress", event => {
   buttonAnimation(event.key);
 });
 
-const soundMaker = key => {
+function soundMaker(key) {
   switch (key) {
     case "w":
       handleSoundPlay("tom-1");
