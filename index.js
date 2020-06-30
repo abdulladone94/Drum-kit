@@ -1,27 +1,31 @@
+function handleClickEvent() {
+  btninner = this.innerHTML;
+  soundMaker(btninner);
+  buttonAnimation(btninner);
+}
+
+const buttonAnimation = currentKey => {
+  document.querySelector("." + currentKey).classList.add("pressed");
+  setTimeout(() => {
+    document.querySelector("." + currentKey).classList.remove("pressed");
+  }, 200);
+};
+
+const handleSoundPlay = fileName => {
+  var audio = new Audio(`sounds/${fileName}.mp3`);
+  audio.play();
+};
+
 for (i = 0; i < document.querySelectorAll(".drum").length; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", function(){
-    btninner = this.innerHTML;
-    soundMaker(btninner);
-    buttonAnimation(btninner);
-  });
+  document
+    .querySelectorAll(".drum")
+    [i].addEventListener("click", handleClickEvent);
 }
 
 document.addEventListener("keypress", event => {
   soundMaker(event.key);
   buttonAnimation(event.key);
 });
-
-const buttonAnimation = currentKey => {
-    document.querySelector("." + currentKey).classList.add("pressed");
-    setTimeout(() => {
-      document.querySelector("." + currentKey).classList.remove("pressed");
-    }, 200);
-  };
-  
-  const handleSoundPlay = fileName => {
-    var audio = new Audio(`sounds/${fileName}.mp3`);
-    audio.play();
-  };
 
 const soundMaker = key => {
   switch (key) {
@@ -54,6 +58,7 @@ const soundMaker = key => {
       handleSoundPlay("crash");
       break;
 
-    default:''
+    default:
+      "";
   }
 };
