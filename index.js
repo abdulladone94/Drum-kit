@@ -1,5 +1,5 @@
 for (i = 0; i < document.querySelectorAll(".drum").length; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", () => {
+  document.querySelectorAll(".drum")[i].addEventListener("click", function(){
     btninner = this.innerHTML;
     soundMaker(btninner);
     buttonAnimation(btninner);
