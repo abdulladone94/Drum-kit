@@ -11,18 +11,6 @@ document.addEventListener("keypress", event => {
   buttonAnimation(event.key);
 });
 
-const buttonAnimation = currentKey => {
-  document.querySelector("." + currentKey).classList.add("pressed");
-  setTimeout(() => {
-    document.querySelector("." + currentKey).classList.remove("pressed");
-  }, 200);
-};
-
-const handleSoundPlay = fileName => {
-  var audio = new Audio(`sounds/${fileName}.mp3`);
-  audio.play();
-};
-
 const soundMaker = key => {
   switch (key) {
     case "w":
